@@ -95,7 +95,7 @@ def translate_and_calculate(user_input):
             result = int(result)
 
         # Step 5: Convert the final digit result back to words
-        result num2words(result)
+        return num2words(result)
 
     except ZeroDivisionError:
         return "infinity (division by zero)"

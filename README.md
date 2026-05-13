@@ -1,52 +1,38 @@
-# 📜 The Lexical Reckoner  
-> **"Where language meets logic."**
+# 📜 The Lexical Reckoner
+> **"The calculator that reads between the lines."**
 
-**The Lexical Reckoner** is a sophisticated linguistic calculator that treats math like a conversation. Instead of typing digits and symbols, you interact with it using plain English. It parses your sentences, computes the logic, and speaks the answer back to you in words.
-
----
-
-## 🎨 The Vibe
-
-Forget clunky buttons and glowing green digits. The Lexical Reckoner is designed for those who prefer prose over parameters. It’s perfect for educational purposes, linguistic experiments, or just adding a touch of class to your calculations.
+**The Lexical Reckoner** is an advanced linguistic computation engine. Version 2.0 introduces a smarter interface that can forgive your typos, remember your history, and display everything in a beautiful, colorized terminal environment.
 
 ---
 
-## ✨ Features
+## 🚀 What’s New in the v2.0 edit?
 
-- **Natural Language Input:** Calculate using words like `"one hundred plus twenty two."`
-- **Verbal Output:** Get results formatted back into words (e.g., `"one hundred and twenty-two"`).
-- **Hybrid Logic:** Supports a mix of words, integers, and standard math symbols.
-- **Advanced Operations:** Handles everything from basic addition to exponents and square roots.
-- **Safe Execution:** Uses a restricted environment for mathematical evaluation.
-
----
-
-## 🚀 Getting Started
-
-### 1. Prerequisites
-
-The Reckoner uses two powerful libraries to understand and speak human languages. Install them via terminal:
-
-```bash
-pip install word2number num2words
-```
+- **✨ Auto-Fix (Fuzzy Matching):** Made a typo? The Reckoner uses `difflib` to understand what you meant. If you type *"fvie plsu ten"*, it intelligently corrects it to *"five plus ten"*.
+- **🧠 Memory Recall:** Use the keyword **"previous"** to carry your last result into a new calculation.  
+  - *Example: "five plus five" -> "ten". Then: "previous times two" -> "twenty".*
+- **🎨 Colorized Interface:** Powered by `colorama`. Successes are in **Green**, errors in **Red**, and the interface stays crisp and readable in **Cyan**.
+- **🛠 Improved Parsing:** Better handling of square roots and complex expressions.
 
 ---
 
-### 2. Installation
+## 📦 Installation
 
-Clone the repository to your local machine:
+The Reckoner now requires three libraries to reach its full potential.
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/HyperBeast1551/The-Lexical-Reckoner.git
 cd The-Lexical-Reckoner
 ```
 
----
+### 2. Install the dependencies
 
-### 3. Usage
+```bash
+pip install word2number num2words colorama
+```
 
-Fire up the script and start reckoning:
+### 3. Run the program
 
 ```bash
 python main.py
@@ -54,18 +40,18 @@ python main.py
 
 ---
 
-## 📖 Examples
+## 📖 Usage Examples
 
-| Input | Output |
-|---|---|
-| `five times five` | `twenty-five` |
-| `one hundred divided by four` | `twenty-five` |
-| `square root of sixty four` | `eight` |
-| `(ten plus ten) times two` | `forty` |
+| Scenario | Input | Result |
+|---|---|---|
+| Basic Math | `twelve times twelve` | `one hundred and forty-four` |
+| Typo Correction | `ten plsu fvie` | `fifteen` |
+| Memory Usage | `previous divided by three` | `(Uses last answer)` |
+| Advanced | `square root of sixty four` | `nine` |
 
 ---
 
-## 🛠 Supported Commands
+## 🛠 Supported Operations
 
 | Operation | Verbal Commands | Symbols |
 |---|---|---|
@@ -79,6 +65,15 @@ python main.py
 
 ---
 
+## 🧠 How it Works
+
+- **Fuzzy Correction:** The script compares every word against a known vocabulary of numbers and operators.
+- **Linguistic Translation:** Words are converted to integers using `word2number`.
+- **Safe Evaluation:** The expression is sanitized and evaluated using Python's `math` library.
+- **Verbalization:** The numeric result is converted back into English prose via `num2words`.
+
+---
+
 ## 📜 License
 
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it as you see fit.
+This project is licensed under the MIT License.

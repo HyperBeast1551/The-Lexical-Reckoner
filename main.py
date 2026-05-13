@@ -9,7 +9,7 @@ try:
     from word2number import w2n
     from num2words import num2words
     from colorama import Fore, Style, init
-    # Initalize colorama to auomatically reset colors after each print
+    # Initialize colorama to automatically reset colors after each print
     init(autoreset=True)
 except ImportError:
     print("Missing dependencies! Please run: pip install word2number num2words colorama")
@@ -25,6 +25,7 @@ OPERATOR_MAP = {
     'multiplied by': '*',
     'multiply by': '*',
     'divided by': '/',
+    'divide by': '/',
     'over': '/',
     'to the power of': '**',
     'power': '**',
@@ -32,7 +33,7 @@ OPERATOR_MAP = {
     'mod': '%'
     }
 
-# Build a vocabulary list for fuzzy matching (includes operators and number words)
+# Build a vocabulary list for fuzzy matching (includes operators and number-words)
 VOCABULARY = set([
     'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
     'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
@@ -55,13 +56,13 @@ def display_help():
     print("  Auto-Fix:    Slight typos will be auto-corrected (e.g., 'plsu' instead of 'plus').\n")
 
     print("Supported Operators (Words):")
-    print("  Addition:      plus, add")
-    print("  Subtraction:   minus, subtract")
+    print("  Addition:       plus, add")
+    print("  Subtraction:    minus, subtract")
     print("  Multiplication: times, multiplied by, multiply by")
-    print("  Division:      divided by, over")
-    print("  Exponents:     power, to the power of")
-    print("Square Root:     sqrt, square root of")
-    print("  Modulo:        mod, modulo\n")
+    print("  Division:       divided by, divide by, over")
+    print("  Exponents:      power, to the power of")
+    print("  Square Root:    sqrt, square root of")
+    print("  Modulo:         mod, modulo\n")
 
     print("Supported Operators (Symbols):")
     print("  +, -, *, /, **, %, ( )\n")
@@ -70,7 +71,7 @@ def display_help():
     print("  - You can mix words and symbols in the same equation (e.g., 'five * six').")
     print("  - Use parentheses to control the order of operations (e.g., '(two plus two) times three').")
     print("  - Type 'exit' or 'quit' to close the calculator.")
-    print("-----------------\n")
+    print("----------------------------------------------------------------------------------------------\n")
 
 def correct_typos(text):
     """Checks alphabetical words against known vocabulary and fixes minor typos."""
@@ -89,11 +90,20 @@ def correct_typos(text):
     return " ".join(corrected_words)
                     
 def translate_and_calculate(user_input, previous_value):
-    #Normalize input
+    # Normalize input
     text = user_input.lower().strip()
+
+    # Remove filler words that don't affect calculation (e.g., "and")
+    text = re.sub(r'\band\b', ' ', text)
 
     # Step 1: Correct typos using fuzzy matching
     text = correct_typos(text)
+
+    # Replace hyphens with spaces to handle cases like "twenty-one"
+    text = text.replace('-', ' ')
+
+    # Normalize whitespace to a single space
+    text = re.sub(r'\s+', ' ', text)  
 
     # Step 2: Handle memory variable ("previous")
     if 'previous' in text:
@@ -152,9 +162,9 @@ def translate_and_calculate(user_input, previous_value):
         return "error: invalid mathematical expression", None, True
 
 def main():
-    print(Fore.CYAN + Style.BRIGHT + "=======================================")
-    print(Fore.CYAN + Style.BRIGHT + "      Welcome to Word Calculator       ")
-    print(Fore.CYAN + Style.BRIGHT + "=======================================")
+    print(Fore.CYAN + Style.BRIGHT + "===========================================")
+    print(Fore.CYAN + Style.BRIGHT + "      Welcome to The Lexical Reckoner       ")
+    print(Fore.CYAN + Style.BRIGHT + "===========================================")
     print(Fore.LIGHTBLACK_EX + "Example: 'one hundred plus twenty two'")
     print(Fore.LIGHTBLACK_EX + "Example: 'square root of sixteen'")
     print(Fore.LIGHTBLACK_EX + "Type 'help' for operators and tips.\n")
@@ -179,8 +189,8 @@ def main():
             if not user_input.strip():
                 continue
 
-            # Run the calculaiton engine
-            str_result, raw_result, is_error = translate_and_calculate(user_input, previous_value)
+            # Run the calculation engine
+            str_result, raw_number, is_error = translate_and_calculate(user_input, previous_value)
 
             # Colourize the output based on success or error
             if is_error:
@@ -188,7 +198,7 @@ def main():
             else:
                 print(Fore.GREEN + f"Result: {str_result}")
                 # Save successful result to memory
-                previous_value = raw_result
+                previous_value = raw_number
 
         except KeyboardInterrupt:
             print(Fore.YELLOW + "\nGoodbye!")

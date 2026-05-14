@@ -1,21 +1,22 @@
-# 📜 The Lexical Reckoner
-> **"Its your useal calculator but with a twist."**
+# The Lexical Reckoner
+> **"Its your usual calculator but with a twist."**
 
 **The Lexical Reckoner** is an advanced linguistic computation engine. Version 2.0 update introduces a smarter interface that can forgive your typos, remember your history, and display everything in a beautiful, colorized terminal environment.
 
 ---
 
-## 🚀 What’s New in the v2.0 update?
+## What’s New in the v2.0 update?
 
-- **✨ Auto-Fix (Fuzzy Matching):** Made a typo? The Reckoner uses `difflib` to understand what you meant. If you type *"fvie plsu ten"*, it intelligently corrects it to *"five plus ten"*.
-- **🧠 Memory Recall:** Use the keyword **"previous"** to carry your last result into a new calculation.  
+- **Auto-Fix (Fuzzy Matching):** Made a typo? The Reckoner uses `difflib` to understand what you meant. If you type *"fvie plsu ten"*, it intelligently corrects it to *"five plus ten"*.
+- **Memory Recall:** Use the keyword **"previous"** to carry your last result into a new calculation.  
   - *Example: "five plus five" -> "ten". Then: "previous times two" -> "twenty".*
-- **🎨 Colorized Interface:** Powered by `colorama`. Successes are in **Green**, errors in **Red**, and the interface stays crisp and readable in **Cyan**.
-- **🛠 Improved Parsing:** Better handling of square roots and complex expressions.
+- **Colorized Interface:** Powered by `colorama`. Successes are in **Green**, errors in **Red**, and the interface stays crisp and readable in **Cyan**.
+- **Improved Parsing:** Better handling of square roots and complex expressions.
 
 ---
 
-## 📦 Installation
+## Installation
+> **"Latest version of Python and Git must be installed before hand."**
 
 The Reckoner now requires three libraries to reach its full potential.
 
@@ -40,7 +41,7 @@ python main.py
 
 ---
 
-## 📖 Usage Examples
+## Usage Examples
 
 | Scenario | Input | Result |
 |---|---|---|
@@ -51,7 +52,7 @@ python main.py
 
 ---
 
-## 🛠 Supported Operations
+## Supported Operations
 
 | Operation | Verbal Commands | Symbols |
 |---|---|---|
@@ -65,7 +66,7 @@ python main.py
 
 ---
 
-## 🧠 How it Works
+## How it Works
 
 - **Fuzzy Correction:** The script compares every word against a known vocabulary of numbers and operators.
 - **Linguistic Translation:** Words are converted to integers using `word2number`.
@@ -74,6 +75,6 @@ python main.py
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License.

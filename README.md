@@ -1,11 +1,11 @@
 # 📜 The Lexical Reckoner
-> **"The calculator that reads between the lines."**
+> **"Its your useal calculator but with a twist."**
 
-**The Lexical Reckoner** is an advanced linguistic computation engine. Version 2.0 introduces a smarter interface that can forgive your typos, remember your history, and display everything in a beautiful, colorized terminal environment.
+**The Lexical Reckoner** is an advanced linguistic computation engine. Version 2.0 update introduces a smarter interface that can forgive your typos, remember your history, and display everything in a beautiful, colorized terminal environment.
 
 ---
 
-## 🚀 What’s New in the v2.0 edit?
+## 🚀 What’s New in the v2.0 update?
 
 - **✨ Auto-Fix (Fuzzy Matching):** Made a typo? The Reckoner uses `difflib` to understand what you meant. If you type *"fvie plsu ten"*, it intelligently corrects it to *"five plus ten"*.
 - **🧠 Memory Recall:** Use the keyword **"previous"** to carry your last result into a new calculation.  

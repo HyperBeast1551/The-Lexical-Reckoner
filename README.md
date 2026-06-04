@@ -5,6 +5,16 @@
 
 ---
 
+## Demo..!
+
+
+
+https://github.com/user-attachments/assets/3e35429c-17e9-4c2e-b86f-913efe1ed486
+
+
+
+---
+
 ## What’s New in the v2.0 update?
 
 - **Auto-Fix (Fuzzy Matching):** Made a typo? The Reckoner uses `difflib` to understand what you meant. If you type *"fvie plsu ten"*, it intelligently corrects it to *"five plus ten"*.
